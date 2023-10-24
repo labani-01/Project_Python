@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/lrpackage/__init__.py
+src/lrpackage/lrmonte.py
+src/lrpackage.egg-info/PKG-INFO
+src/lrpackage.egg-info/SOURCES.txt
+src/lrpackage.egg-info/dependency_links.txt
+src/lrpackage.egg-info/top_level.txt
