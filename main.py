@@ -26,6 +26,8 @@ allArrays_2 = np.array([])
 theta = initial_condition.z
 #theta_1 = sns.histplot(theta, kde=True, stat="density", linewidth=0)
 plt.hist(theta) 
+plt.xlabel("Initial angle")
+plt.ylabel("No. of events (particles)") 
 plt.show() 
  
     
@@ -57,5 +59,7 @@ for i in range(0, len(filtered_array_y)): #this loop helps to evaluate the final
  
 #phi_1 = sns.histplot(angle, kde=True, stat="density", linewidth=0)
 plt.hist(angle)  
+plt.xlabel("final angle")
+plt.ylabel("Number of events (particles)") 
 plt.show() 
  
