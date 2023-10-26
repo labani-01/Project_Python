@@ -6,8 +6,8 @@ from scipy.integrate import solve_ivp
 from lrpackage import lrmonte 
  
 q = 2 # charge assuming it is a alpha particle
-B = 1.2 # magnetic field magnitude
-E_1 = 1.2 #electric field magnitude
+B = float(input("Please enter the value of magnetic field in the z direction = ")) # magnetic field magnitude
+E_1 = float(input("Please enter the value of electric field in the y direction = ")) #electric field magnitude
 R = 1 #distance of the detector from the source
 m = 4 # mass
 C = q / m # constant for convenience

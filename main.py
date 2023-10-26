@@ -7,7 +7,7 @@ from lrpackage import lrmonte
 import random
 import initial_condition
 import trajectroy
-import seaborn as sns 
+
 
 
 q = initial_condition.q
@@ -24,7 +24,7 @@ allArrays_1 = np.array([])
 allArrays_2 = np.array([])
 
 theta = initial_condition.z
-theta_1 = sns.histplot(theta, kde=True, stat="density", linewidth=0)
+#theta_1 = sns.histplot(theta, kde=True, stat="density", linewidth=0)
 plt.hist(theta)
 plt.show() 
  
@@ -55,7 +55,7 @@ for i in range(0, len(filtered_array_y)):
     angle.append(d) 
     
  
-phi_1 = sns.histplot(angle, kde=True, stat="density", linewidth=0)
+#phi_1 = sns.histplot(angle, kde=True, stat="density", linewidth=0)
 plt.hist(angle)  
 plt.show() 
  
