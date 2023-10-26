@@ -14,23 +14,48 @@ C = q / m # constant for convenience
 v = 1 #magnitude of the initial velocity of the charged particle
 
 def gauss(x):
+    """ Take x values,
+        returns the functional vaule.
+    """
     return 1*np.exp(-x**2/2)/np.sqrt(2*math.pi)
     
     
 x_1 = lrmonte.RejectionSampling(-math.pi, math.pi, 0.8, 100000)
 x, y = x_1.random_generate()
-print(x, y) 
-z = lrmonte.accept_reject(gauss, x, y) 
-print(len(z)) 
+#print(x, y) 
+z = lrmonte.accept_reject(gauss, x, y) # distribution of initial angle that can be thought of as the distribution of initial particles from source"
+#print(len(z)) 
 
 
 v_x = []
 v_y = [] 
 
-N = len(z) 
+N = len(z) # number of particles
  
     
 class ComponentVelocity:
+    """
+    A class to represent the component of initial velocity.
+    
+    ...
+    
+    Attributes
+    ----------
+    z : list
+      it has the initial angular distribution of particles.
+    v : float
+      it is the magnitude of initial velocity which is same for 
+      all the particles
+      
+    Methods
+    -------
+    __init__(self, z, v):
+        construct all the necessary attributes for the object.
+    component(self):
+        will evaluate the x and y component of velocity and will
+        return them.
+    """
+    
     
     def __init__(self, a_1, a_2):
         self.a_1 = a_1
@@ -42,7 +67,11 @@ class ComponentVelocity:
         return x, y 
 
 
-def component(z, v):
+def component_1(z, v):
+    """ takes array of initial angle and magnitude of velocity
+    returns two arrays of x and y component of velocity.
+    """
+    
     for i in range(0, N):
         V = ComponentVelocity(v, z[i])
         vx, vy = V.component() 

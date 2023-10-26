@@ -16,6 +16,22 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+  "httpx",
+  "gidgethub[httpx]>4.0.0",
+  "django>2.1; os_name != 'nt'",
+  "django>2.0; os_name == 'nt'",
+  "numpy", "scipy", "matplotlib.pyplot",
+  "random", "math"]
+]
+
+[project.scripts]
+Monte-main = "main"
+
+[project.modules]
+module-1 = "initial_condition"
+module-2 = "trajectory"
+
 [project.urls]
 "Homepage" = "https://github.com/pypa/sampleproject"
 "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
