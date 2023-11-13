@@ -18,10 +18,18 @@ v = initial_condition.v
 R = initial_condition.R
 E_1 = initial_condition.E_1
 N = initial_condition.N
+N_1 = initial_condition.N_1
 v0x = []
 v0y = []
 allArrays_1 = np.array([])
 allArrays_2 = np.array([])
+
+
+N_sq = N_1**2
+mean = np.sum(N_1)/N 
+sig = np.sqrt(np.sum(N_sq)/N - mean**2) 
+print("Mean of initial distribution = ", mean)
+print("Standard deviation of initial distribution = ", sig) 
 
 theta = initial_condition.z
 #theta_1 = sns.histplot(theta, kde=True, stat="density", linewidth=0)

@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from scipy.integrate import solve_ivp
 from lrpackage import lrmonte 
 import initial_condition
-
+ 
 
 
 q = initial_condition.q
@@ -18,6 +18,7 @@ E_1 = initial_condition.E_1
 N = initial_condition.N
 
 #initialZ = [0, 0, v0x, v0y] # = [positionX, positionY, velocityX, velocityY]
+
 def ivf(t, Z) :
     """ This function takes time and Z array
     Z = [positionX, positionY, velocityX, velocityY] 
@@ -31,6 +32,9 @@ def ivf(t, Z) :
     dvydt = C * E_1 - C * B * Z[2]
     return [dxdt, dydt, dvxdt, dvydt]
     
+ 
+
+
     
 def final_value(n, array_1, array_2, arr_1, arr_2):
     """ This function takes positionX, positionY, velocityX, velocityY, length arrays

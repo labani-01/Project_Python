@@ -4,14 +4,17 @@ import math
 from matplotlib import pyplot as plt
 from scipy.integrate import solve_ivp
 from lrpackage import lrmonte 
- 
-q = 2 # charge assuming it is a alpha particle
+
+
+
+q = float(input("Please enter the charge of the particle = ")) # charge assuming it is a alpha particle
 B = float(input("Please enter the value of magnetic field in the z direction = ")) # magnetic field magnitude
 E_1 = float(input("Please enter the value of electric field in the y direction = ")) #electric field magnitude
 R = 1 #distance of the detector from the source
-m = 4 # mass
+m = float(input("Please enter the mass of the particle = ")) # mass
 C = q / m # constant for convenience
 v = 1 #magnitude of the initial velocity of the charged particle
+s = int(input("Sample size = "))
 
 def gauss(x):
     """ Take x values,
@@ -20,7 +23,7 @@ def gauss(x):
     return 1*np.exp(-x**2/2)/np.sqrt(2*math.pi)
     
     
-x_1 = lrmonte.RejectionSampling(-math.pi, math.pi, 0.8, 100000)
+x_1 = lrmonte.RejectionSampling(-math.pi, math.pi, 0.8, s)
 x, y = x_1.random_generate()
 #print(x, y) 
 z = lrmonte.accept_reject(gauss, x, y) # distribution of initial angle that can be thought of as the distribution of initial particles from source"
@@ -30,8 +33,10 @@ z = lrmonte.accept_reject(gauss, x, y) # distribution of initial angle that can 
 v_x = []
 v_y = [] 
 
+N_1 = np.array(z) 
 N = len(z) # number of particles
- 
+print("Number of particles = ", N) 
+
     
 class ComponentVelocity:
     """
